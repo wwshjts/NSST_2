@@ -1,7 +1,7 @@
 .PHONY : all clean test
 #target setup
-target_name = 
-headers_name = 
+target_name := line
+headers_name := line
 
 #dirs setup
 src_dir := sources/
@@ -23,7 +23,6 @@ objects := $(addsuffix .o, $(objects))
 
 headers := $(addprefix $(header_dir), $(headers_name)) 
 headers := $(addsuffix .h, $(headers)) 
-
 
 
 all : $(build_dir) $(objects)
