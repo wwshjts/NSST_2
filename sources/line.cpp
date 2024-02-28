@@ -45,7 +45,7 @@ Point Line::intersection(const Line& l1, const Line& l2) {
 
 Line Line::perpendicular(const Line& l, const Point& p) {
     // using normal vector
-    return Line(1/k, k * p.y - p.x);
+    return Line(1/l.k, l.k * p.y - p.x);
 }
 
 Line::Line(double k, double b) {

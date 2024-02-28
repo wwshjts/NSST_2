@@ -13,6 +13,6 @@ struct Line {
     Line(double k, double b); 
     int parallel(const Line& other) const;
     int in(const Point& p) const;
-    Point intersection(const Line& l1, const Line& l2);
-    Line perpendicular(const Line& l, const Point& p);
+    static Point intersection(const Line& l1, const Line& l2);
+    static Line perpendicular(const Line& l, const Point& p);
 };
