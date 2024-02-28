@@ -29,14 +29,16 @@ TEST(LineTest, FromCoeff) {
 
 TEST(LineTest, Perpendicular) {
     Line l(4, 0);
-    Line p = Line::perpendicular(l, Point(0, 0));
+    Line p;
+    Line::perpendicular(l, Point(0, 0), p);
     EXPECT_TRUE(p.in(Point(8, 2)));
 }
 
 TEST(LineTest, Intersection) {
     Line l1(2, 0);
     Line l2(Point(1, 2), Point(2, 0));
-    Point p = Line::intersection(l1, l2);
+    Point p;
+    Line::intersection(l1, l2, p);
     EXPECT_EQ(p.x, 1);
     EXPECT_EQ(p.y, 2);
 
