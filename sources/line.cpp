@@ -21,22 +21,17 @@ int Line::in(const Point& p) const {
 
 Line::Line(const Point& p1, const Point& p2) { 
     assert(!p1.equal(p2));
+    assert(p1.x != p2.x);
 
-    // just the Cramer rule
     double D = p1.x - p2.x;
-    if (D == 0.0) { 
-        this->b = p1.x;
-        this->k = 0;
-    } else {
-        this->k = (p1.y - p2.y) / D; 
-        this->b = (p1.x * p2.y - p2.x * p1.y) / D;
-    }
+    this->k = (p1.y - p2.y) / D; 
+    this->b = (p1.x * p2.y - p2.x * p1.y) / D;
 }
 
 Point Line::intersection(const Line& l1, const Line& l2) {
     assert(!l1.parallel(l2));
     Point res(0, 0);
-    // just the Cramer rule 
+    // if the lines are not parallel D != 0
     double D = l2.k - l1.k;
     res.x = (l1.b - l2.b) / D;
     res.y = (l1.b * l2.k - l1.k * l2.b) / D;
@@ -44,6 +39,7 @@ Point Line::intersection(const Line& l1, const Line& l2) {
 }
 
 Line Line::perpendicular(const Line& l, const Point& p) {
+    assert(l.k != 0);
     // using normal vector
     return Line(1/l.k, l.k * p.y - p.x);
 }
