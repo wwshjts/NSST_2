@@ -32,7 +32,7 @@ $(build_dir) :
 
 
 $(objects) : $(build_dir)%.o : $(target) $(headers) 
-	$(CC) -c $(src_dir)$*.cpp  -o  $(build_dir)$*.o
+	$(CC) -c $(src_dir)$*.cpp  -o  $(build_dir)$*.o $(debug_flags)
 
 
 #test setup
